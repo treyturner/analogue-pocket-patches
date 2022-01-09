@@ -12,6 +12,14 @@ MD5: `239FD20F424EE53D2F11018DBD942DF4`
 
 You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Boxxle%20(USA,%20Europe)%20(Rev%20A)%20Pocket%20Conversion%20v1.0.ips).
 
+## Boxxle II
+
+Name: `Boxxle II (USA, Europe)`
+
+MD5: `308ABD707A48EE9D69C287D818469FD6`
+
+You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Boxxle%20II%20(USA,%20Europe)%20Pocket%20Conversion%20v1.0.ips).
+
 ## The Bugs Bunny Crazy Castle 
 
 Name: `Bugs Bunny Crazy Castle, The (USA, Europe)`
