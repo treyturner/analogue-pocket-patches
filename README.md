@@ -1,6 +1,8 @@
 # analogue-pocket-patches
 
-Disclaimer: I'm new at this; please open issues if you find any bugs. Use these patches at your own risk; no warranty is expressed or implied.
+I'm new at this; please open issues if you find any bugs.
+
+Use these patches at your own risk; no warranty is expressed or implied.
 
 ## Knight's Quest (USA)
 
