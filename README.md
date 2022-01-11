@@ -28,7 +28,15 @@ MD5: `43189B859C0036119F233D46B1F2E9FD`
 
 You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Bugs%20Bunny%20Crazy%20Castle,%20The%20(USA,%20Europe)%20Pocket%20Conversion%20v1.0.ips).
 
-## Knight Quest (USA)
+## Golf
+
+Name: `Golf (World)`
+
+MD5: `6175A5EF55A1998944267E75D8EBF79D`
+
+You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Golf%20(World)%20Pocket%20Conversion%20v1.0.ips).
+
+## Knight Quest
 
 Name: `Knight Quest (USA)`
 
