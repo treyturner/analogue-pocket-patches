@@ -12,6 +12,14 @@ MD5: `D67E58BF5F39D5FB073FED85C3D9BEDE`
 
 You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Adventure%20Island%20(USA,%20Europe)%20Pocket%20Conversion%20v1.0.ips)
 
+## Adventure Island II - Aliens in Paradise
+
+Name: `Adventure Island II - Aliens in Paradise (USA, Europe)`
+
+MD5: `ED2444AFE317452E29C1C2258DA6963C`
+
+You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Adventure%20Island%20II%20-%20Aliens%20in%20Paradise%20(USA,%20Europe)%20Pocket%20Conversion%20v1.0.ips)
+
 ## Boxxle
 
 Name: `Boxxle (USA, Europe) (Rev A)`
