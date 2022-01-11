@@ -4,6 +4,14 @@ I'm new at this; please open issues if you find any bugs.
 
 Use these patches at your own risk; no warranty is expressed or implied.
 
+## Adventure Island
+
+Name: `Adventure Island (USA, Europe)`
+
+MD5: `D67E58BF5F39D5FB073FED85C3D9BEDE`
+
+You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Adventure%20Island%20(USA,%20Europe)%20Pocket%20Conversion%20v1.0.ips)
+
 ## Boxxle
 
 Name: `Boxxle (USA, Europe) (Rev A)`
