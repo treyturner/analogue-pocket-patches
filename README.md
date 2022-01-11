@@ -26,7 +26,7 @@ Name: `Blaster Master Boy (USA)`
 
 MD5: `C4868BF46A993B4C33A9A8AF5341282A`
 
-You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Blaster%20Master%20Boy%20(USA)%20Pocket%20Conversion%20v1.0).
+You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Blaster%20Master%20Boy%20(USA)%20Pocket%20Conversion%20v1.0.ips).
 
 ## Boxxle
 
