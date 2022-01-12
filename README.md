@@ -38,7 +38,7 @@ Name: `Blaster Master - Enemy Below (USA, Europe) (SGB Enhanced).gbc`
 
 MD5: `756664AA0C9418B200946AA4E1DDDF53`
 
-Bugs found, patch redacted for now.
+Bugs found, patch recalled for now.
 
 
 ## Boxxle
