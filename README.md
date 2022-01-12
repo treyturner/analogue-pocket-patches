@@ -7,7 +7,7 @@ Use these patches at your own risk; no warranty is expressed or implied.
 
 ## Adventure Island
 
-Name: `Adventure Island (USA, Europe)`
+Name: `Adventure Island (USA, Europe).gb`
 
 MD5: `D67E58BF5F39D5FB073FED85C3D9BEDE`
 
@@ -16,7 +16,7 @@ You can download the Analogue Pocket IPS patch [here](https://github.com/treytur
 
 ## Adventure Island II - Aliens in Paradise
 
-Name: `Adventure Island II - Aliens in Paradise (USA, Europe)`
+Name: `Adventure Island II - Aliens in Paradise (USA, Europe).gb`
 
 MD5: `ED2444AFE317452E29C1C2258DA6963C`
 
@@ -25,7 +25,7 @@ You can download the Analogue Pocket IPS patch [here](https://github.com/treytur
 
 ## Blaster Master Boy
 
-Name: `Blaster Master Boy (USA)`
+Name: `Blaster Master Boy (USA).gb`
 
 MD5: `C4868BF46A993B4C33A9A8AF5341282A`
 
@@ -34,7 +34,7 @@ You can download the Analogue Pocket IPS patch [here](https://github.com/treytur
 
 ## Blaster Master - Enemy Below
 
-Name: `Blaster Master - Enemy Below (USA, Europe) (SGB Enhanced)`
+Name: `Blaster Master - Enemy Below (USA, Europe) (SGB Enhanced).gbc`
 
 MD5: `756664AA0C9418B200946AA4E1DDDF53`
 
@@ -43,7 +43,7 @@ You can download the Analogue Pocket IPS patch [here](https://github.com/treytur
 
 ## Boxxle
 
-Name: `Boxxle (USA, Europe) (Rev A)`
+Name: `Boxxle (USA, Europe) (Rev A).gb`
 
 MD5: `239FD20F424EE53D2F11018DBD942DF4`
 
@@ -52,7 +52,7 @@ You can download the Analogue Pocket IPS patch [here](https://github.com/treytur
 
 ## Boxxle II
 
-Name: `Boxxle II (USA, Europe)`
+Name: `Boxxle II (USA, Europe).gb`
 
 MD5: `308ABD707A48EE9D69C287D818469FD6`
 
@@ -61,7 +61,7 @@ You can download the Analogue Pocket IPS patch [here](https://github.com/treytur
 
 ## The Bugs Bunny Crazy Castle 
 
-Name: `Bugs Bunny Crazy Castle, The (USA, Europe)`
+Name: `Bugs Bunny Crazy Castle, The (USA, Europe).gb`
 
 MD5: `43189B859C0036119F233D46B1F2E9FD`
 
@@ -70,7 +70,7 @@ You can download the Analogue Pocket IPS patch [here](https://github.com/treytur
 
 ## Golf
 
-Name: `Golf (World)`
+Name: `Golf (World).gb`
 
 MD5: `6175A5EF55A1998944267E75D8EBF79D`
 
@@ -79,7 +79,7 @@ You can download the Analogue Pocket IPS patch [here](https://github.com/treytur
 
 ## Knight Quest
 
-Name: `Knight Quest (USA)`
+Name: `Knight Quest (USA).gb`
 
 MD5: `3418B37CC4AB9BBD8B416BA27BE2F8F7`
 
