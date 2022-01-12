@@ -38,9 +38,7 @@ Name: `Blaster Master - Enemy Below (USA, Europe) (SGB Enhanced).gbc`
 
 MD5: `756664AA0C9418B200946AA4E1DDDF53`
 
-__NOTE:__ Graphical glitches in the pause screen have been reported and are being debugged.
-
-You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Blaster%20Master%20-%20Enemy%20Below%20(USA,%20Europe)%20(SGB%20Enhanced)%20Pocket%20Conversion%20v1.0.ips).
+Bugs found, patch redacted for now.
 
 
 ## Boxxle
