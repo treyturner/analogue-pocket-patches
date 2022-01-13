@@ -14,7 +14,7 @@ Until a jailbreak is released, a small group of people have taken on the task of
 
 Besides the convenience of playing the games without a flash cart, patching is a fun puzzle to work out, like [TIS-100](https://www.zachtronics.com/tis-100/) or similar, and the feeling you get when you successfully convert a game you love and iron out any bugs or glitches is immensely satisfying.
 
-Special thanks to [Analogue](https://www.analogue.co/), [BestPig](https://twitter.com/bestpig), [infinest](https://github.com/jduckett95), [JoseJX](https://github.com/JoseJX/), [jimmyduckegg](https://twitter.com/Pocket_Patches), and big ups to everyone working on patches.
+Special thanks to [Analogue](https://www.analogue.co/), [BestPig](https://twitter.com/bestpig), [infinest](https://github.com/jduckett95), [JoseJX], [jimmyduckegg](https://twitter.com/Pocket_Patches), and big ups to everyone working on patches.
 
 
 ## FAQ
@@ -47,8 +47,10 @@ A: Maybe, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSeqEnkT_
 - [mgbdis]: A Game Boy ROM disassembler
 - [rgbds]: A Game Boy compiler
 - [Visual Studio Code](https://code.visualstudio.com/) or an IDE with nice diff features
-- Linux (`mgbdis` produces a `Makefile` that `rgbds` uses to compile)
-    - I use [WSL2 Ubuntu](https://ubuntu.com/wsl) in Windows
+- [`make`](https://www.gnu.org/software/make) (`mgbdis` produces a `Makefile` that `rgbds` uses to compile)
+  - I use `make` from [WSL2 Ubuntu](https://ubuntu.com/wsl) in Windows, but you can use it directly in Windows via [GnuWin32](http://gnuwin32.sourceforge.net/), [MSYS2](https://www.msys2.org/), [CYGWIN](https://www.cygwin.com/), etc.
+- [Emulicious] and/or [JoseJX]'s patched SameBoy Pocket for testing & debugging
+  - A Windows build of the patched SameBoy is available here: [SameBoy Pocket (Windows)-6f8c35c.zip]
 - [LunarIPS](https://www.romhacking.net/utilities/240/) or another IPS (binary) tool that supports creating patches
 
 
@@ -334,7 +336,7 @@ You should absolutely test your patch as thoroughly as possible, especially if y
 There are at least two options for debugging your patched ROM. More details on debugging will be added soon.
 
 ### JoseJX's patched SameBoy
-JoseJX modified the SameBoy emulator to operate like a Pocket; that fork can be found [here](https://github.com/JoseJX/SameBoy). I compiled it for Windows to save you the trouble; it's available in [SameBoy Pocket (Windows)-6f8c35c.zip].
+JoseJX modified the SameBoy emulator to operate like a Pocket; that fork can be found [here](https://github.com/JoseJX/SameBoy). I compiled it for Windows to save you the trouble; it's available here: [SameBoy Pocket (Windows)-6f8c35c.zip].
 
 Note that this version will ONLY play patched ROMS correctly - if you want to test a clean ROM, you'll need to download the stock version of SameBoy and run it with that.
 
@@ -343,7 +345,7 @@ The cool thing about JoseJX's SameBoy is that if you start the emulator with `Sa
 [SameBoy Pocket (Windows)-6f8c35c.zip]: https://github.com/treyturner/analogue-pocket-patches/raw/main/Tutorial/SameBoy%20Pocket%20(Windows)-6f8c35c.zip
 
 ### Emulicious
-[Emulicious](https://emulicious.net/) has also been updated to support playing .pocket files; the good news here is that it knows how to handle clean roms (with a `.gb` or `.gbc` extension), and it also knows to flip `rLCDC` and `rSTAT` when you load a `.pocket` file. This means you __MUST__ rename your recompiled ROM to `.pocket` it's to work as expected in Emulicious.
+[Emulicious] has also been updated to support playing .pocket files; the good news here is that it knows how to handle clean roms (with a `.gb` or `.gbc` extension), and it also knows to flip `rLCDC` and `rSTAT` when you load a `.pocket` file. This means you __MUST__ rename your recompiled ROM to `.pocket` it's to work as expected in Emulicious.
 
 The super cool thing about Emulicious is its fairly easy to use debugger which is available from the Tools menu. There you can see the game's disassembly, set breakpoints, and watch registers and the values of arbitrary expressions.
 
@@ -357,4 +359,5 @@ Check out this [short video](https://www.youtube.com/watch?v=VK1CfcRzElg).
 [technical manual]: http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf
 [mgbdis]: https://github.com/mattcurrie/mgbdis
 [rgbds]: https://github.com/gbdev/rgbds
-
+[Emulicious]: https://emulicious.net
+[JoseJX]: https://github.com/JoseJX
