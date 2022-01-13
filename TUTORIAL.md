@@ -110,7 +110,7 @@ The Makefile can be used to recompile the assembly code into a ROM using [rgbds]
 
 The `bank_000.asm` and `bank_001.asm` files contain the game code. Bigger ROMs will have more banks.
 
-`game.asm` is the main entrypoint that `INCLUDE`s the banks and `hardware.inc`. As far as I know, only the banks require patching, `game.asm` and `hardware.inc` can be left as-is.
+`game.asm` is the main entrypoint that `INCLUDE`s the banks and `hardware.inc`. Only the banks require patching, `game.asm` and `hardware.inc` can be left as-is.
 
 Rename the `disassembly` folder something that looks like your ROM name. Then duplicate this folder (copy/paste) and give the copy a suffix of `(Pocket)`. This will be the copy you work on so you can reference the unchanged original at any time.
 
@@ -118,7 +118,7 @@ Rename the `disassembly` folder something that looks like your ROM name. Then du
 ## High level: Patching LCDC and STAT calls
 - Replace every LCDC usage reference of `$40` or `$ff40` with the new address (`$4e` or `$ff4e`)
 - Replace calls to `[rLCDC]` with `[$4e]`
-- Bit reverse any values read or set to LCDC or STAT. This includes:
+- Bit reverse any values read or set to `LCDC` or `STAT`. This includes:
   - Reversing byte values being read/set into registers
   - Reversing the index of specific bits being read/set
 
@@ -142,7 +142,7 @@ Source | Binary     | Reversed   | Patched
 
 A full conversion table is available in [hex_bit_reversal_table.csv](Tutorial/hex_bit_reversal_table.csv)
 
-Note that palindromic values don't change:
+Note that palindromic values don't change since they're the same forwards and backwards:
 
 Source | Binary     | Reversed   | Patched
 ---    | ---        | ---        | ---
@@ -288,7 +288,7 @@ Sometimes you have to follow code across multiple lines and/or jumps.
 ```
 
 ## Other patterns & tricks (yet to be documented here)
-These examples document the basic idea, but there are other structures, patterns, and tricks Game Boy developers use to read and write data into relevant registers. One way to get a handle on other patching techniques is to analyze a patch someone else released that appears to be working well. Use `mgbdis` to disassemble the clean and patched ROMs, and compare the resulting code side-by-side your IDE or [WinMerge](https://winmerge.org/?lang=en).
+These examples document the basic idea, but there are other structures, patterns, and tricks Game Boy developers use to read and write data into relevant registers. One way to get a handle on other patching techniques is to analyze a patch someone else released that appears to be working well. Use `mgbdis` to disassemble the clean and patched ROMs, and compare the resulting code side-by-side using your IDE or [WinMerge](https://winmerge.org).
 
 You can also join the `#analogue-pocket` channel of the [Classic Gaming Discord](https://discord.gg/UDu5ztY) to discuss your issue and possible solutions.
 
@@ -296,7 +296,7 @@ Once you're able to find and patch the required code, there's one last step that
 
 
 ## Modifying the Header
-In `bank_000`, the `HeaderLogo` must be replaced with the following data:
+In `bank_000`, the `HeaderLogo` must be replaced with data comprising the Analogue logo:
 
 ```
 HeaderLogo::
@@ -304,6 +304,7 @@ HeaderLogo::
     db $00, $1a, $00, $d5, $00, $22, $00, $69, $6f, $f6, $f7, $73, $09, $90, $e1, $10
     db $44, $40, $9a, $90, $d5, $d0, $44, $30, $a9, $21, $5d, $48, $22, $e0, $f8, $60
 ```
+
 
 ## Compiling the ROM
 Once your edits are complete, it's time to rebuild the ROM. When you disassembled, [mgbdis] created a Makefile that can be used to compile the code back into a ROM using [rgbds]. Part of the Makefile includes steps to run `rgbfix`, part of `rgbds`, to fix the recompiled ROM header.
@@ -321,7 +322,7 @@ To address these issues, change this line in `Makefile`:
 
 Removing `-v` prevents logo validation, and the `-f` flag fixes header (`h`) and global (`g`)  checksums. See the [rgbfix docs](https://rgbds.gbdev.io/docs/v0.5.2/rgbfix.1) for more info.
 
-Additionally, in Ubuntu, the `md5` command is called `md5sum`, so if you want to avoid a completely ignorable error during your build script, you can change that line as well:
+Additionally, in Ubuntu, the `md5` command is called `md5sum`, so if you want to avoid a completely ignorable error during the build, you can change that line as well:
 
 ```diff
 -md5 $@
@@ -350,9 +351,7 @@ The cool thing about JoseJX's SameBoy is that if you start the emulator with `Sa
 The super cool thing about Emulicious is its fairly easy to use debugger which is available from the Tools menu. There you can see the game's disassembly, set breakpoints, and watch registers and the values of arbitrary expressions.
 
 
-## Share your work
-
-### Create an IPS
+## Create an IPS
 Check out this [short video](https://www.youtube.com/watch?v=VK1CfcRzElg).
 
 
