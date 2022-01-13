@@ -8,7 +8,7 @@ Use these patches at your own risk; no warranty is expressed or implied.
 
 Please open issues if you find bugs.
 
-### Interested in making your own patches? Check out the work-in-progress [tutorial]().
+### Interested in making your own patches? Check out the work-in-progress [tutorial](TUTORIAL.md).
 
 
 
