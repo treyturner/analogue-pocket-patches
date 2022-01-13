@@ -343,12 +343,18 @@ Note that this version will ONLY play patched ROMS correctly - if you want to te
 
 The cool thing about JoseJX's SameBoy is that if you start the emulator with `SameBoy debugger.exe`, a window will open and log when it detects reads or writes to `$FF40` (`rLCDC`). This is useful because despite the simple examples above, these accesses are not always immediately clear from looking at the code.
 
+You can press Ctrl-C in the debugging window to get an interactive debugger, but it's command-line and not as intuitive for newbies as Emulicious.
+
 [SameBoy Pocket (Windows)-6f8c35c.zip]: https://github.com/treyturner/analogue-pocket-patches/raw/main/Tutorial/SameBoy%20Pocket%20(Windows)-6f8c35c.zip
 
 ### Emulicious
-[Emulicious] has also been updated to support playing .pocket files; the good news here is that it knows how to handle clean roms (with a `.gb` or `.gbc` extension), and it also knows to flip `rLCDC` and `rSTAT` when you load a `.pocket` file. This means you __MUST__ rename your recompiled ROM to `.pocket` it's to work as expected in Emulicious.
+[Emulicious] has also been updated to support playing `.pocket` files; the good news here is that it knows how to handle clean roms (with a `.gb` or `.gbc` extension), and it also knows to flip `rLCDC` and `rSTAT` when you load a `.pocket` file. This means you __MUST__ rename your recompiled ROM to `.pocket` for it to work as expected in Emulicious.
 
-The super cool thing about Emulicious is its fairly easy to use debugger which is available from the Tools menu. There you can see the game's disassembly, set breakpoints, and watch registers and the values of arbitrary expressions.
+The super cool thing about Emulicious is its fairly easy-to-use debugger available from the Tools menu. There you can see the game's disassembly, set breakpoints, and watch registers and the values of arbitrary expressions.
+
+For instance, you can set breakpoints for when `$FF40` (the old `LCDC` address) or `$FF41` (the `STAT` address) and read or written:
+
+![Emulicious breakpoints](Tutorial/emulicious_breakpoints.png)
 
 
 ## Create an IPS
