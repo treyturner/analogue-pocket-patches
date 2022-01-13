@@ -329,6 +329,7 @@ Additionally, in Ubuntu, the `md5` command is called `md5sum`, so if you want to
 +md5sum $@
 ```
 
+Assuming you didn't introduce any compiler errors with your code, you should now have a `game.gb` or `game.gbc` file that you can rename to `.pocket` for testing.
 
 ## Testing & Debugging
 
