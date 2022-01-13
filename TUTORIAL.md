@@ -26,7 +26,7 @@ A: No, GB Studio can only create GB and GBC games, so that's all the Pocket was 
 A: Broadly speaking, yes, but some games are way more complicated to patch than others depending on how they utilize the affected registers. Games also increase in complexity the larger they are, and GBC games are usually more difficult than GB games.
 
 ### Q: Will you please patch my favorite game?
-A: Maybe, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSeqEnkT_ZebRavAPEUZd53PuGJCzYRssvwaGRoY7naucPtRyg/viewform) and we'll get to it when we can and if it's possible. 
+A: Maybe, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSeqEnkT_ZebRavAPEUZd53PuGJCzYRssvwaGRoY7naucPtRyg/viewform) and we'll get to it when we can and if it's possible.
 
 
 ## The Gist
@@ -53,7 +53,7 @@ A: Maybe, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSeqEnkT_
 
 
 ## Gameboy CPU Manual
-An unofficial CPU [technical manual](http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf) is available.
+An unofficial CPU [technical manual] is available.
 
 
 ## Some Game Boy CPU basics
@@ -74,12 +74,13 @@ The `PC` (Program Counter) register points to the next instructions to be execut
 | Command       | Description                                       | Notes
 | ---           | ---                                               | ---
 | `ld n, nn`    | Put 16-bit value `nn` into `n`                    | Where `n` = `BC`,`DE`,`HL`,`SP`
-| `ldh (n), a`  | Put accumulator `a` into memory address `$ff00+n` |  
+| `ldh (n), a`  | Put accumulator `a` into memory address `$ff00+n` |
 | `res b, r`    | Reset bit `b` in register `r`                     | Where `b` = `0`-`7`, `r` = `A`,`B`,`C`,`D`,`E`,`H`,`L`,`(HL)`
 | `set b, r`    | Set bit `b` in register `r`                       | Where `b` = `0`-`7`, `r` = `A`,`B`,`C`,`D`,`E`,`H`,`L`,`(HL)`
 | `bit b, r`    | Test bit `bit` in register `r`					| Where `b` = `0`-`7`, `r` = `A`,`B`,`C`,`D`,`E`,`H`,`L`,`(HL)`
 | `cp n`        | Compare `A` with `N`, result in `A`
 
+For more details on individual commands, visit the [technical manual].
 
 # Patching: The Details
 
@@ -246,7 +247,7 @@ Source | Patched
 -ld hl, $ff40
 +ld hl, $ff4e
 -res 5, [hl]
-+res 2, [hl] 
++res 2, [hl]
 ```
 
 
@@ -256,11 +257,11 @@ Sometimes you have to follow code across multiple lines and/or jumps.
  jr_000_07e5:
      ldh a, [$81]
      bit 3, a
-     ret z   
- 
+     ret z
+
      ldh a, [$b3]
      cp $0e
-     ret nc     
+     ret nc
 
 -    ld hl, $ff40       ; <-- rLCDC read
 +    ld hl, $ff4e       ; <-- rLCDC read
@@ -283,6 +284,14 @@ Sometimes you have to follow code across multiple lines and/or jumps.
      ld a, $02
      jr jr_000_07fe      ; <-- jump to jr_000_07fe
 ```
+
+## Other patterns & tricks (yet to be documented here)
+These examples document the basic idea, but there are other structures, patterns, and tricks Game Boy developers use to read and write data into relevant registers. One way to get a handle on other patching techniques is to analyze a patch someone else released that appears to be working well. Use `mgbdis` to disassemble the clean and patched ROMs, and compare the resulting code side-by-side your IDE or [WinMerge](https://winmerge.org/?lang=en).
+
+You can also join the `#analogue-pocket` channel of the [Classic Gaming Discord](https://discord.gg/UDu5ztY) to discuss your issue and possible solutions.
+
+Once you're able to find and patch the required code, there's one last step that needs to be performed.
+
 
 ## Modifying the Header
 In `bank_000`, the `HeaderLogo` must be replaced with the following data:
@@ -345,5 +354,7 @@ The super cool thing about Emulicious is its fairly easy to use debugger which i
 Check out this [short video](https://www.youtube.com/watch?v=VK1CfcRzElg).
 
 
+[technical manual]: http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf
 [mgbdis]: https://github.com/mattcurrie/mgbdis
 [rgbds]: https://github.com/gbdev/rgbds
+
