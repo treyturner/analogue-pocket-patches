@@ -332,7 +332,7 @@ Additionally, in Ubuntu, the `md5` command is called `md5sum`, so if you want to
 
 ## Testing & Debugging
 
-You should absolutely test your patch as thoroughly as possible, especially if you intend to distribute it. It's very easy to miss or misunderstand areas of code that which result in boot failures, in-game crashes, or glitchy graphics.
+You should absolutely test your patch as thoroughly as possible, especially if you intend to distribute it. It's very easy to miss or misunderstand areas of code that will result in boot failures, in-game crashes, or glitchy graphics.
 
 There are at least two options for debugging your patched ROM. More details on debugging will be added soon.
 
