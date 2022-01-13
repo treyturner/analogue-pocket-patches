@@ -331,7 +331,7 @@ Note that this version will ONLY play patched ROMS correctly - if you want to te
 
 The cool thing about JoseJX's SameBoy is that if you start the emulator with `SameBoy debugger.exe`, a window will open and log when it detects reads or writes to `$FF40` (`rLCDC`). This is useful because despite the simple examples above, these accesses are not always immediately clear from looking at the code.
 
-[SameBoy Pocket (Windows)-6f8c35c.zip]: Tutorial/SameBoy%20Pocket%20(Windows)-6f8c35c.zip
+[SameBoy Pocket (Windows)-6f8c35c.zip]: https://github.com/treyturner/analogue-pocket-patches/raw/main/Tutorial/SameBoy%20Pocket%20(Windows)-6f8c35c.zip
 
 ### Emulicious
 [Emulicious](https://emulicious.net/) has also been updated to support playing .pocket files; the good news here is that it knows how to handle clean roms (with a `.gb` or `.gbc` extension), and it also knows to flip `rLCDC` and `rSTAT` when you load a `.pocket` file. This means you __MUST__ rename your recompiled ROM to `.pocket` it's to work as expected in Emulicious.
