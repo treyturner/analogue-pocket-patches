@@ -49,8 +49,8 @@ A: Maybe, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSeqEnkT_
 - [Visual Studio Code](https://code.visualstudio.com/) or an IDE with nice diff features
 - [`make`](https://www.gnu.org/software/make) (`mgbdis` produces a `Makefile` that `rgbds` uses to compile)
   - I use `make` from [WSL2 Ubuntu](https://ubuntu.com/wsl) in Windows, but you can use it directly in Windows via [GnuWin32](http://gnuwin32.sourceforge.net/), [MSYS2](https://www.msys2.org/), [CYGWIN](https://www.cygwin.com/), etc.
-- [Emulicious] and/or [JoseJX]'s patched SameBoy Pocket for testing & debugging
-  - A Windows build of the patched SameBoy is available here: [SameBoy Pocket (Windows)-6f8c35c.zip]
+- [Emulicious] and/or [JoseJX]'s patched [SameBoy Pocket](https://github.com/JoseJX/SameBoy) for testing & debugging
+  - A Windows build of SameBoy Pocket is available here: [SameBoy Pocket (Windows)-6f8c35c.zip]
 - [LunarIPS](https://www.romhacking.net/utilities/240/) or another IPS (binary) tool that supports creating patches
 
 
