@@ -86,6 +86,15 @@ MD5: `8963803E642DBFBE4F5F3BC5A567785D`
 You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Bugs%20Bunny%20Crazy%20Castle%202,%20The%20(USA)%20Pocket%20Conversion%20v1.0.ips).
 
 
+##  Bugs Bunny - Crazy Castle 3
+
+Name: `Bugs Bunny - Crazy Castle 3 (USA, Europe).gbc`
+
+MD5: `2EBF6F830013D8702EEBF93955DB52D5`
+
+You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Bugs%20Bunny%20-%20Crazy%20Castle%203%20(USA,%20Europe)%20Pocket%20Conversion%20v1.0.ips).
+
+
 ## Golf
 
 Name: `Golf (World).gb`
