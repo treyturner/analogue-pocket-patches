@@ -65,22 +65,22 @@ Locations of code and data in memory are also represented in hexidecimal. A 16-b
 ### CPU registers
 Registers are small areas of memory within the CPU that temporarily hold values while doing calculations and comparisons. When work is done, results may be stored in another register, written elsewhere in memory, or `ret`urned back to the `call`ing code.
 
-A few special registers store data about the current state of operation, such as the address in memory of the currently code and what address should be executed next.
+A few special registers store data about the current state of operation, such as the address in memory of the currently executing code and what address should be executed next.
 
-Registers names are CPU-specific and tend to be represented in 1-3 letter combinations like `A`, `AX`, `EAX`, etc.
+Register names are CPU-specific and tend to be represented in 1-3 letter combinations like `A`, `AX`, `EAX`, etc.
 
 ### Instructions and parameters
-Assembly code is comprised of abbreviated commands called _instructions_ which are followed by 0 to 2 _parameters_.
+Assembly is comprised of abbreviated commands called _instructions_ which are followed by 0 to 2 _parameters_.
 
 Instructions are low-level functions provided by the CPU to perform tasks like basic math, value comparisons, reading or writing data to memory, and handling program flow.
 
-Parameters are data sent to and utilized by instructions for processing. They may be register names, hex values, or memory addresses.
+Parameters are data sent to and used by instructions. They may be register names, hex values, or memory addresses.
 
 Here's an example (abstract) instruction:
 ```
 ld a, n
 ```
-This `ld` command calls for two parameters, `a` and `n`. It loads supplied value `n` into register `A`. So, this code:
+This `ld` command requires two parameters, `a` and `n`. It loads supplied value `n` into register `A`. So, this code:
 ```
 ld a, $40
 ```
