@@ -95,6 +95,15 @@ MD5: `2EBF6F830013D8702EEBF93955DB52D5`
 You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Bugs%20Bunny%20-%20Crazy%20Castle%203%20(USA,%20Europe)%20Pocket%20Conversion%20v1.0.ips).
 
 
+##  Bugs Bunny in Crazy Castle 4
+
+Name: `Bugs Bunny in Crazy Castle 4 (USA).gbc`
+
+MD5: `0877A4B1765287C5B50EA53A47A1D7AD`
+
+You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Bugs%20Bunny%20in%20Crazy%20Castle%204%20(USA)%20Pocket%20Conversion%20v1.0.ips).
+
+
 ## Golf
 
 Name: `Golf (World).gb`
