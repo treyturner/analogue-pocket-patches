@@ -1,6 +1,6 @@
 # How to convert Game Boy ROMs to Analogue Pocket homebrew
 
-__NOTE:__ This tutorial is a work in progress. Corrections and requests for clarification appreciated.
+This tutorial is a work in progress. Corrections and requests for clarification appreciated.
 
 Additionally, this document comes with a humble disclaimer: I have no idea what I'm doing.
 
@@ -8,13 +8,13 @@ Additionally, this document comes with a humble disclaimer: I have no idea what 
 ## What is this?
 The [Analogue Pocket](https://www.analogue.co/pocket) allows you to play homebrew Game Boy and Game Boy Color games created with [GB Studio](https://www.gbstudio.dev/).
 
-The differences between GB Studio games as compiled for Pocket and retail games are fairly minimal. These differences can be patched on a per-game basis to enable playing the game directly from the SD card, without a cartridge or flash cart.
+The differences between GB Studio games as compiled for Pocket and retail games are fairly minimal. These differences can be patched on a per-game basis to enable playing directly from an SD card without a cartridge.
 
 Until a jailbreak is released, a small group of people have taken on the task of converting retail games to Pocket format. This guide intends to help you get started patching if that sort of thing interests you.
 
-Besides the convenience of playing the games without a flash cart, patching is a fun puzzle to work out, like [TIS-100](https://www.zachtronics.com/tis-100/) or similar, and the feeling you get when you successfully convert a game you love and iron out any bugs or glitches is immensely satisfying.
+Besides the convenience of playing the games without a cartridge, patching is a fun puzzle to work out, and the feeling you get having successfully converted a game you love and ironing out glitches is immensely satisfying.
 
-Special thanks to [Analogue](https://www.analogue.co/), [BestPig](https://twitter.com/bestpig), [infinest](https://github.com/jduckett95), [JoseJX], [jimmyduckegg](https://twitter.com/Pocket_Patches), and big ups to everyone working on patches.
+Special thanks to [Analogue](https://www.analogue.co/), [BestPig](https://twitter.com/bestpig), [JoseJX], [infinest](https://github.com/jduckett95), [jimmyduckegg](https://twitter.com/Pocket_Patches), and big ups to everyone working on patches.
 
 
 ## FAQ
@@ -54,24 +54,95 @@ A: Maybe, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSeqEnkT_
 - [LunarIPS](https://www.romhacking.net/utilities/240/) or another IPS (binary) tool that supports creating patches
 
 
-## Gameboy CPU Manual
-An unofficial CPU [technical manual] is available.
+## Assembly crash course
+
+### Numeric values
+Numeric values in assembly are represented in [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) (base 16). This seems obvious when looking at hex number `0a` (decimal `10`); less so with hex `27` (decimal `39`). To ease confusion, hex values are prefixed with a `$`, like `$0a` or `$27`.
+
+### Memory addresses
+Locations of code and data in memory are also represented in hexidecimal. A 16-bit address bus ranges from `$0000` to `$ffff`.
+
+### CPU registers
+Registers are small areas of memory within the CPU that temporarily hold values while doing calculations and comparisons. When work is done, results may be stored in another register, written elsewhere in memory, or `ret`urned back to the `call`ing code.
+
+A few special registers store data about the current state of operation, such as the address in memory of the currently code and what address should be executed next.
+
+Registers names are CPU-specific and tend to be represented in 1-3 letter combinations like `A`, `AX`, `EAX`, etc.
+
+### Instructions and parameters
+Assembly code is comprised of abbreviated commands called _instructions_ which are followed by 0 to 2 _parameters_.
+
+Instructions are low-level functions provided by the CPU to perform tasks like basic math, value comparisons, reading or writing data to memory, and handling program flow.
+
+Parameters are data sent to and utilized by instructions for processing. They may be register names, hex values, or memory addresses.
+
+Here's an example (abstract) instruction:
+```
+ld a, n
+```
+This `ld` command calls for two parameters, `a` and `n`. It loads supplied value `n` into register `A`. So, this code:
+```
+ld a, $40
+```
+would immediately store hex value `40` into register `A`.
+
+### Accessing values contained in memory
+To access the value held by a location in memory, wrap the memory's address in brackets. For instance, memory at address `$ff41` can be read or written via `[$ff41]`.
+
+Note that registers can be used to store memory addresses, then used in place of an address:
+
+```
+ld hl, $ff40    ; load 16-bit value $ff40 into register HL
+ldh a, [hl]     ; load 8-bit value from [$ff40] into register A
+```
+
+### `call` vs. jump (`jp`/`jr`)
+Both these instructions specify some other location in the ROM to execute next. The difference is that [`call`](http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf#page=114)ed code will evenutally [`ret`](http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf#page=117)urn and resume operation from the callsite, where as [jumps](http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf#page=111) (`jp`/`jr`) will only to return if the program redirects back to it from another area of code.
 
 
 ## Some Game Boy CPU basics
 
+### CPU manual
+An unofficial CPU [technical manual] is available.
+
+### Game Boy memory map
+The GameBoy contains an 8-bit processor, meaning it can access 8-bits of data at one time. To access this data, it has a 16-bit address bus, which can address 65,536 positions of memory. This address space is split into the following areas.
+
+![Game Boy Memory Map](Tutorial/memory_map.gif)
+
+|                                               | Address           | Purpose
+| ---                                           | ---               | ---
+| ![Magenta](Tutorial/square-magenta.png)       | `$FFFF`	          | Interrupt Enable Flag
+| ![Magenta](Tutorial/square-magenta.png)       | `$FF80` - `$FFFE`	| Zero Page - 127 bytes
+| ![Magenta](Tutorial/square-magenta.png)       | `$FF00` - `$FF7F`	| Hardware I/O Registers
+| ![Magenta](Tutorial/square-magenta.png)       | `$FEA0` - `$FEFF`	| Unusable Memory
+| ![Magenta](Tutorial/square-magenta.png)       | `$FE00` - `$FE9F`	| OAM - Object Attribute Memory
+| ![Black](Tutorial/square-black.png)           | `$E000` - `$FDFF`	| Echo RAM - Reserved, Do Not Use
+| ![Yellow](Tutorial/square-yellow.png)         | `$D000` - `$DFFF`	| Internal RAM - Bank 1-7 (switchable - CGB only)
+| ![Yellow](Tutorial/square-yellow.png)         | `$C000` - `$CFFF`	| Internal RAM - Bank 0 (fixed)
+| ![Green](Tutorial/square-green.png)           | `$A000` - `$BFFF`	| Cartridge RAM (If Available)
+| ![Blue](Tutorial/square-blue.png)             | `$9C00` - `$9FFF`	| BG Map Data 2
+| ![Blue](Tutorial/square-blue.png)             | `$9800` - `$9BFF`	| BG Map Data 1
+| ![Cyan](Tutorial/square-cyan.png)             | `$8000` - `$97FF`	| Character RAM
+| ![Red](Tutorial/square-red.png)               | `$4000` - `$7FFF`	| Cartridge ROM - Switchable Banks 1-xx
+| ![Red](Tutorial/square-red.png)               | `$0150` - `$3FFF`	| Cartridge ROM - Bank 0 (fixed)
+| ![Dark Grey](Tutorial/square-grey-dark.png)   | `$0100` - `$014F`	| Cartridge Header Area
+| ![Light Grey](Tutorial/square-grey-light.png) | `$0000` - `$00FF`	| Restart and Interrupt Vectors
+
+For more info on each area, check out the [Game Boy Memory Map](http://gameboy.mongenel.com/dmg/asmmemmap.html).
+
+### Game Boy CPU registers
 This section borrows from [pages 61-64](http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf#page=61) of the manual.
 
-Registers are areas of memory in the CPU that hold values about the current state of operation. There are eight 8-bit registers (`A`,`B`,`C`,`D`,`E`,`F`,`H`,`L`) and two 16-bit registers (`SP` & `PC`).
+The Game Boy CPU has eight 8-bit registers (`A`,`B`,`C`,`D`,`E`,`F`,`H`,`L`) and two 16-bit registers (`SP` & `PC`).
 
 ![Game Boy CPU registers](Tutorial/cpu_registers.png)
 
 Some instructions allow you to use `A`,`B`,`C`,`D`,`E`,`H`, and `L` as 16-bit values by pairing them up in the following manner: `AF`, `BC`, `DE`, & `HL`. The `F` register is indirectly accessible by the programmer and is used to store the results of various math operations.
 
-The `PC` (Program Counter) register points to the next instructions to be executed in memory, and the `SP` (Stack Pointer) register points to the current stack position.
+The `SP` (Stack Pointer) register points to the current stack position, and the `PC` (Program Counter) register points to the next instructions to be executed in memory. As code executes line by line, `SP` increments - but keep in mind, it stores an address in the ROM, not a line number. When code is reached that `call`s or `jump`s to another line, `PC` is updated to the target address, and on the next instruction `SP` will jump there.
 
-
-## Assembly commands of interest
+## Z80 Instruction Cheat Sheet (non-exhaustive)
 
 | Command       | Description                                       | Notes
 | ---           | ---                                               | ---
@@ -82,22 +153,39 @@ The `PC` (Program Counter) register points to the next instructions to be execut
 | `bit b, r`    | Test bit `bit` in register `r`					| Where `b` = `0`-`7`, `r` = `A`,`B`,`C`,`D`,`E`,`H`,`L`,`(HL)`
 | `cp n`        | Compare `A` with `N`, result in `A`
 
-For more details on individual commands, visit the [technical manual].
+For more details on individual commands, visit the [manual](http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf#page=65).
+
 
 # Patching: The Details
-
 
 ## Decompiling the ROM
 Use [mgbdis] to disassemble the ROM.
 ```
-$ mgbdis-1.4/mgbdis.py roms/Tetris\ \(World\)\ \(Rev\ A\).gb
+$ mgbdis-1.4/mgbdis.py --print-hex roms/Tetris\ \(World\)\ \(Rev\ A\).gb
 Loading "roms/Tetris (World) (Rev A).gb"...
 ROM MD5 hash: 982ed5d2b12a0377eb14bcdc4123744e
 Generating labels...
 Generating disassembly..
 Disassembly generated in "./disassembly"
 ```
-This generates:
+
+If you use `--print-hex` when disassembling, a comment is appended to each line with the bank address and opcode, which is the hex representation of CPU instructions:
+
+```
+Call_000_0245:
+Jump_000_0245:
+    ldh a, [$a1]                                  ; $0245: $f0 $a1
+    bit 7, a                                      ; $0247: $cb $7f
+    ret nz                                        ; $0249: $c0
+
+    set 7, a                                      ; $024a: $cb $ff
+    ldh [$a1], a                                  ; $024c: $e0 $a1
+    ldh [rLCDC], a                                ; $024e: $e0 $40
+    ret                                           ; $0250: $c9
+```
+
+Disassembling generates the following directory and files:
+
 ```
 disassembly/
 ├── Makefile
@@ -106,6 +194,7 @@ disassembly/
 ├── game.asm
 └── hardware.inc
 ```
+
 The Makefile can be used to recompile the assembly code into a ROM using [rgbds]. Some modifications are required, but we'll handle this [later](#compiling-the-rom).
 
 The `bank_000.asm` and `bank_001.asm` files contain the game code. Bigger ROMs will have more banks.
@@ -218,7 +307,9 @@ This is more complex, as references to `rLCDC` need to be updated to `$4e` while
 
 
 ### Reversing the index of specific bits being read/set
-Some code `set`s or `res`tores a value to a specific bit within a register. In these cases, we need to reverse the index of the bit. Consider the zero-indexed positions of binary digits in a byte: `76543210`. Reversed, we have `01234567`. This table shows how these values are mapped:
+Some instructions, like `set`, `res`, and `bit`, handle specific bits within a register. In these cases, we need to reverse the index of the bit. Consider the zero-indexed positions of binary digits in a byte: `76543210`. Reversed, we have `01234567`.
+
+This relationship can be expressed as `patched = 7 - source`.
 
 Source | Patched
 ---    | ---
@@ -265,15 +356,15 @@ Sometimes you have to follow code across multiple lines and/or jumps.
      cp $0e
      ret nc
 
--    ld hl, $ff40       ; <-- rLCDC read
-+    ld hl, $ff4e       ; <-- rLCDC read
+-    ld hl, $ff40        ; load $ff40 into hl
++    ld hl, $ff4e        ; load $ff4e into hl
      ldh a, [$b2]
      xor $01
      ldh [$b2], a
      jr z, jr_000_0801   ; <-- jumps here to jr_000_0801
 
--    set 5, [hl]
-+    set 2, [hl]
+-    set 5, [hl]         ; set bit 5 in $ff40
++    set 2, [hl]         ; set bit 2 in $ff4e
      ld a, $01
 
  jr_000_07fe:
@@ -281,8 +372,8 @@ Sometimes you have to follow code across multiple lines and/or jumps.
      ret                 ; <-- return to jr_000_07e5
 
  jr_000_0801:
--    res 5, [hl]
-+    res 2, [hl]
+-    res 5, [hl]         ; reset bit 5 in $ff40
++    res 2, [hl]         ; reset bit 2 in $ff4e
      ld a, $02
      jr jr_000_07fe      ; <-- jump to jr_000_07fe
 ```
@@ -332,7 +423,6 @@ Additionally, in Ubuntu, the `md5` command is called `md5sum`, so if you want to
 Assuming you didn't introduce any compiler errors with your code, you should now have a `game.gb` or `game.gbc` file that you can rename to `.pocket` for testing.
 
 ## Testing & Debugging
-
 You should absolutely test your patch as thoroughly as possible, especially if you intend to distribute it. It's very easy to miss or misunderstand areas of code that will result in boot failures, in-game crashes, or glitchy graphics.
 
 There are at least two options for debugging your patched ROM. More details on debugging will be added soon.
