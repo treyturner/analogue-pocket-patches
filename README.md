@@ -73,11 +73,16 @@ MD5: `3418B37CC4AB9BBD8B416BA27BE2F8F7` \
 Patch: [link](https://github.com/treyturner/analogue-pocket-patches/raw/main/Knight%20Quest%20(USA)%20Pocket%20Conversion%20v1.0.ips)
 
 ## Parodius
-Name: `Parodius (Europe).gb`\
+Name: `Parodius (Europe).gb` \
 MD5: `C8B832A87EB3EE0DEA44D31DF7981B34` \
 Patch: [link](https://github.com/treyturner/analogue-pocket-patches/raw/main/Parodius%20(Europe)%20Pocket%20Conversion%20v1.0.ips)
 
 ## Tiny Toons Adventures - Wacky Sports
-Name: `Tiny Toon Adventures - Wacky Sports (USA).gb`\
+Name: `Tiny Toon Adventures - Wacky Sports (USA).gb` \
 MD5: `038BA19B06F5D3B56E9BDA495B609C54` \
 Patch: [link](https://github.com/treyturner/analogue-pocket-patches/raw/main/Tiny%20Toon%20Adventures%20-%20Wacky%20Sports%20(USA)%20Pocket%20Conversion%20v1.0.ips)
+
+## Tiny Toons Adventures 2 - Montana's Movie Madness
+Name: `Tiny Toon Adventures 2 - Montana's Movie Madness (USA, Europe).gb` \
+MD5: `7AA389F71808DC989A38B41009A32851` \
+Patch: [link](https://github.com/treyturner/analogue-pocket-patches/raw/main/Tiny%20Toon%20Adventures%202%20-%20Montana's%20Movie%20Madness%20(USA,%20Europe)%20Pocket%20Conversion%20v1.0.ips)
