@@ -73,5 +73,5 @@ You can download the Analogue Pocket IPS patch [here](https://github.com/treytur
 
 ## Parodius
 Name: `Parodius (Europe).gb`\
-MD5: `Parodius (Europe) Pocket Conversion v1.0.ips` \
+MD5: `C8B832A87EB3EE0DEA44D31DF7981B34` \
 You can download the Analogue Pocket IPS patch [here](https://github.com/treyturner/analogue-pocket-patches/raw/main/Parodius%20(Europe)%20Pocket%20Conversion%20v1.0.ips).
