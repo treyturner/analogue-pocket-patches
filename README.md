@@ -74,7 +74,7 @@ Patch: [link](https://github.com/treyturner/analogue-pocket-patches/raw/main/Kni
 
 ## Parodius
 Name: `Parodius (Europe).gb` \
-MD5: `C8B832A87EB3EE0DEA44D31DF7981B34` \
+MD5: `C94AFB46CADA0118AA8FF08CC07749A4` \
 Patch: [link](https://github.com/treyturner/analogue-pocket-patches/raw/main/Parodius%20(Europe)%20Pocket%20Conversion%20v1.0.ips)
 
 ## Tiny Toons Adventures - Wacky Sports
