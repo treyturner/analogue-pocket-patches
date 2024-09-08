@@ -31,7 +31,7 @@ A: No, GB Studio can only create GB and GBC games, so that's all the Pocket was 
 A: Broadly speaking, yes, but some games are way more complicated to patch than others depending on how they utilize the affected registers. Games also increase in complexity the larger they are, and GBC games are usually more difficult than GB games.
 
 ### Q: Will you please patch my favorite game?
-A: Maybe, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSeqEnkT_ZebRavAPEUZd53PuGJCzYRssvwaGRoY7naucPtRyg/viewform) and we'll get to it when we can and if it's possible.
+A: Chances are it's already been patched; check out the [Retro Patcher](https://retropatcher.jonabrams.com/). If not, at this point you'd be better off using an OpenFPGA core like spiritualized1997 releases [here](https://github.com/spiritualized1997/openFPGA-GB-GBC/releases).
 
 
 ## The Gist
