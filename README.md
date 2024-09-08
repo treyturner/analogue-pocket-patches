@@ -1,14 +1,14 @@
 # analogue-pocket-patches
 
-IPS patches to make Game Boy and Game Boy Color ROMs playable from SD on the [Analogue Pocket](https://www.analogue.co/pocket).
+IPS patches to make retail Game Boy and Game Boy Color ROMs playable from SD on the [Analogue Pocket](https://www.analogue.co/pocket) by exploiting its [GB Studio](https://www.gbstudio.dev/) compatibility feature intended for homebrew use.
 
-For more info, visit [https://strt-slct.com/analogue-pocket-patches](https://strt-slct.com/analogue-pocket-patches).
+This is a largely obsolete procedure, as OpenFPGA was released in July of 2022 which enabled the community to publish FPGA cores that directly load retail ROMs.
 
 Use these patches at your own risk; no warranty is expressed or implied.
 
 Please open issues if you find bugs.
 
-### Interested in making your own patches? Check out the work-in-progress [tutorial](TUTORIAL.md).
+### Interested in making your own patches? Check out the [tutorial](TUTORIAL.md) (end of life).
 
 ## Adventure Island
 Name: `Adventure Island (USA, Europe).gb` \

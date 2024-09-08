@@ -1,12 +1,17 @@
+# So long, and thanks for all the patches
+
+This tutorial is end of life. OpenFPGA was released in July of 2022, enabling the community to publish FPGA cores that directly load retail ROMs.
+
+The nice page at strt-slct.com which told a bit of our story and collected patches is no longer online, but [Jon Abram](https://twitter.com/JonathanAbrams)'s [Retro Patcher](https://retropatcher.jonabrams.com/) remains online and is the easiest way to make use of everyone's published patches.
+
+Congrats and thanks to everyone who took on the challenge of patching and shared in their knowledge.
+
+This tutorial will no longer be maintained. It's original disclaimer remains eternally true: I have no idea what I'm doing.
+
 # How to convert Game Boy ROMs to Analogue Pocket homebrew
 
-This tutorial is a work in progress. Corrections and requests for clarification appreciated.
-
-Additionally, this document comes with a humble disclaimer: I have no idea what I'm doing.
-
-
 ## What is this?
-The [Analogue Pocket](https://www.analogue.co/pocket) allows you to play homebrew Game Boy and Game Boy Color games created with [GB Studio](https://www.gbstudio.dev/).
+The [Analogue Pocket](https://analogue.co/pocket) allows you to play homebrew Game Boy and Game Boy Color games created with [GB Studio](https://gbstudio.dev/).
 
 The differences between GB Studio games as compiled for Pocket and retail games are fairly minimal. These differences can be patched on a per-game basis to enable playing directly from an SD card without a cartridge.
 
@@ -14,7 +19,7 @@ Until a jailbreak is released, a small group of people have taken on the task of
 
 Besides the convenience of playing the games without a cartridge, patching is a fun puzzle to work out, and the feeling you get having successfully converted a game you love and ironing out glitches is immensely satisfying.
 
-Special thanks to [Analogue](https://www.analogue.co/), [BestPig](https://twitter.com/bestpig), [JoseJX], [infinest](https://github.com/jduckett95), [jimmyduckegg](https://twitter.com/Pocket_Patches), and big ups to everyone working on patches.
+Special thanks to [Analogue](https://analogue.co/), [BestPig](https://twitter.com/bestpig), [JoseJX], [infinest](https://github.com/jduckett95), [jimmyduckegg](https://twitter.com/Pocket_Patches), and big ups to everyone working on patches.
 
 
 ## FAQ
